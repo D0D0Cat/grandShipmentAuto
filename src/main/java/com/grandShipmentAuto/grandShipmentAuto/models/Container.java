@@ -1,20 +1,17 @@
 package com.grandShipmentAuto.grandShipmentAuto.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "containers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Container {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
@@ -23,4 +20,8 @@ public class Container {
 
     @Column(name = "weight")
     private long weight;
+
+    @ManyToOne
+    @JoinColumn(name = "hazard_id", referencedColumnName = "id")
+    private HazardType hazardType;
 }
