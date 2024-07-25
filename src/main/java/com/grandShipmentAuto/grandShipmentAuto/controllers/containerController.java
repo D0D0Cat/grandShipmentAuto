@@ -3,6 +3,7 @@ package com.grandShipmentAuto.grandShipmentAuto.controllers;
 import com.grandShipmentAuto.grandShipmentAuto.models.Container;
 import com.grandShipmentAuto.grandShipmentAuto.services.containerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,11 +32,10 @@ public class containerController {
     }
 
     @PostMapping
-    public Container createContainer(@RequestBody Container container){
-        System.out.println("Container Created Successfully");
-        return containerService.save(container);
+    public ResponseEntity<Container> createContainer(@RequestBody Container container) {
+        Container savedContainer = containerService.save(container);
+        return new ResponseEntity<>(savedContainer, HttpStatus.CREATED);
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<Container> updateContainer(@PathVariable Long id, @RequestBody Container containerDetails){
         Optional<Container> container = containerService.findById(id);

@@ -18,9 +18,6 @@ public class bootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println("Labas");
-        // Uncomment the following lines if you want to use these methods
-        // System.out.println(containerRepository.findById(1L));
-        // System.out.println(containerRepository.findAll());
+
     }
 }
