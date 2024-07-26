@@ -17,6 +17,6 @@ public class HazardType {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "type")
+    @Column(name = "type ")
     private String type;
 }
