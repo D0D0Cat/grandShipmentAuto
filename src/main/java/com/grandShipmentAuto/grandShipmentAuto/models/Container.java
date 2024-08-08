@@ -24,4 +24,5 @@ public class Container {
     @ManyToOne
     @JoinColumn(name = "hazard_id", referencedColumnName = "id")
     private HazardType hazardType;
+
 }
